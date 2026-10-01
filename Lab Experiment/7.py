@@ -1,26 +1,36 @@
-# write a python program to create records of n students.Store each student record as a dictionary containing roll number, name,branch and cgpa.store each record as a tuple inside a list.Display all records and search for a student using roll number.
+'''
+Write a program to create records of n students. Store each student record
+as a dictionary containing roll number, name, branch and marks. Store all records in a list and
+search for a student using roll number. (Condition: Roll numbers must be unique.)
+'''
+
+
 n = int(input("Enter number of students: "))
+
 students = []
 
-for _ in range(n):
-    roll = int(input("Enter roll number: "))
-    name = input("Enter name: ")
-    branch = input("Enter branch: ")
-    cgpa = float(input("Enter CGPA: "))
-    student = (roll, name, branch, cgpa)
-    students.append(student)
 
-print("All Student Records:")
-for student in students:
-    print(f"Roll: {student[0]}, Name: {student[1]}, Branch: {student[2]}, CGPA: {student[3]}")
+for i in range(n):
+    roll_no = int(input("Enter Roll Number: "))
+    name = input("Enter name of Student: ")
+    branch = input("Enter branch of the Student: ")
+    marks = int(input("Enter Marks of the Student: "))
+
+    stu_dict = {
+        "roll_no" : roll_no,
+        "name" : name,
+        "branch" : branch,
+        "marks" : marks
+    }
+
+    students.append(stu_dict)
 
 search_roll = int(input("Enter roll number to search: "))
-found = False
-for student in students:
-    if student[0] == search_roll:
-        print(f"Student found - Roll: {student[0]}, Name: {student[1]}, Branch: {student[2]}, CGPA: {student[3]}")
-        found = True
-        break
 
-if not found:
-    print("Student not found.")
+for i in range(n):
+    if students[i]["roll_no"] == search_roll:
+        print("Student Record:")
+        print(students[i])
+        break
+else:
+    print("Records not found!!!")
