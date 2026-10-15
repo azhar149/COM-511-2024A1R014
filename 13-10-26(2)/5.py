@@ -8,7 +8,6 @@
 # - Returning a book increases it's available copy count by one.
 # - Display all appropriate message for an unavailable book,an invalid choice or an invalid number of copies.
 
-from os import name
 
 
 class Library:
